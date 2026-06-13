@@ -2,6 +2,8 @@ import ipaddress
 
 from services.ip_lookup import lookup_ip
 
+from services.risk_engine import calculate_risk
+
 
 def validate_ip(ip):
 
@@ -36,7 +38,8 @@ def main():
             continue
 
         data = lookup_ip(ip)
-
+        risk = calculate_risk(data)
+        
         print("\n====================")
 
         print(f"IP: {data['query']}")
@@ -49,6 +52,15 @@ def main():
 
         print(f"Organización: {data['org']}")
 
+        print(
+            f"Risk Score: {risk['score']}"
+        )
+
+        print(
+            f"Risk Level: {risk['level']}"  
+        )
+
+        print(f"Recommended Action: {risk['action']}")
 
 if __name__ == "__main__":
     main()
