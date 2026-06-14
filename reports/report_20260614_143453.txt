@@ -1,0 +1,47 @@
+============================================================
+Threat Intelligence Report
+Generated: 2026-06-14 14:34:53.622095
+============================================================
+
+IP: 8.8.8.8
+Country: United States
+City: Ashburn
+ISP: Google LLC
+Organization: Google Public DNS
+Abuse Score: 0
+Total Reports: 135
+Whitelisted: True
+Risk Score: 0
+Risk Level: LOW
+Recommended Action: MONITOR
+
+------------------------------------------------------------
+
+IP: 1.1.1.1
+Country: Australia
+City: South Brisbane
+ISP: Cloudflare, Inc
+Organization: APNIC and Cloudflare DNS Resolver project
+Abuse Score: 0
+Total Reports: 207
+Whitelisted: True
+Risk Score: 0
+Risk Level: LOW
+Recommended Action: MONITOR
+
+------------------------------------------------------------
+
+IP: 208.67.222.222
+Country: United States
+City: San Jose
+ISP: Cisco OpenDNS, LLC
+Organization: Cisco OpenDNS, LLC
+Abuse Score: 0
+Total Reports: 0
+Whitelisted: True
+Risk Score: 0
+Risk Level: LOW
+Recommended Action: MONITOR
+
+------------------------------------------------------------
+

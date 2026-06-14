@@ -1,0 +1,14 @@
+============================================================
+Threat Intelligence Report
+Generated: 2026-06-14 13:15:34.892469
+============================================================
+
+IP: 8.8.8.8
+Country: United States
+ISP: Google LLC
+Risk Score: 0
+Risk Level: LOW
+Recommended Action: MONITOR
+
+--------------------------------------------------
+

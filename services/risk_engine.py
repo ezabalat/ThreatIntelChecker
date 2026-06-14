@@ -1,11 +1,38 @@
-def calculate_risk(data):
+def calculate_risk(
+    ip_data,
+    abuse_data
+):
 
-    isp = data.get(
+    isp = ip_data.get(
         "isp",
         ""
     ).lower()
 
+    abuse = abuse_data.get(
+        "data",
+        {}
+    )
+
+    abuse_score = abuse.get(
+        "abuseConfidenceScore",
+        0
+    )
+
+    total_reports = abuse.get(
+        "totalReports",
+        0
+    )
+
+    is_whitelisted = abuse.get(
+        "isWhitelisted",
+        False
+    )
+
     score = 0
+
+    # -------------------
+    # ISP Rules
+    # -------------------
 
     if "google" in isp:
         score += 0
@@ -31,12 +58,38 @@ def calculate_risk(data):
     else:
         score += 20
 
+    # -------------------
+    # AbuseIPDB Rules
+    # -------------------
+
+    if is_whitelisted:
+
+        score = 0
+
+    else:
+
+        if abuse_score >= 75:
+            score += 60
+
+        elif abuse_score >= 50:
+            score += 40
+
+        elif abuse_score >= 25:
+            score += 20
+
+        if total_reports > 100:
+            score += 10
+
+    # -------------------
+    # Risk Level
+    # -------------------
+
     if score <= 10:
 
         level = "LOW"
         action = "MONITOR"
 
-    elif score <= 30:
+    elif score <= 40:
 
         level = "MEDIUM"
         action = "INVESTIGATE"
@@ -49,5 +102,8 @@ def calculate_risk(data):
     return {
         "score": score,
         "level": level,
-        "action": action
+        "action": action,
+        "abuse_score": abuse_score,
+        "total_reports": total_reports,
+        "is_whitelisted": is_whitelisted
     }
